@@ -195,6 +195,19 @@ define("stocks/instance-initializers/ember-data", ["exports", "ember-data/-priva
     initialize: _emberDataPrivateInstanceInitializersInitializeStoreService["default"]
   };
 });
+define("stocks/instance-initializers/global", ["exports"], function (exports) {
+  exports.initialize = initialize;
+
+  function initialize(application) {
+    application.store = application.lookup("service:store");
+    window.App = application;
+  }
+
+  exports["default"] = {
+    name: 'global',
+    initialize: initialize
+  };
+});
 define('stocks/models/stock', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({
     symbol: _emberData['default'].attr('string'),

@@ -102,6 +102,15 @@ define('stocks/tests/helpers/start-app.jshint', ['exports'], function (exports) 
     assert.ok(true, 'helpers/start-app.js should pass jshint.');
   });
 });
+define('stocks/tests/instance-initializers/global.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - instance-initializers/global.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'instance-initializers/global.js should pass jshint.');
+  });
+});
 define('stocks/tests/models/stock.jshint', ['exports'], function (exports) {
   'use strict';
 
