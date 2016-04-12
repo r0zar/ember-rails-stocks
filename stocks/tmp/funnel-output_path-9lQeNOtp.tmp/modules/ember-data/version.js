@@ -1,0 +1,1 @@
+/home/ubuntu/stocks/tmp/creator-output_path-2ZnNaDtD.tmp/version.js

@@ -1,0 +1,1 @@
+/home/ubuntu/stocks/tmp/funnel-input_base_path-HrwNfWpe.tmp/0/index.js

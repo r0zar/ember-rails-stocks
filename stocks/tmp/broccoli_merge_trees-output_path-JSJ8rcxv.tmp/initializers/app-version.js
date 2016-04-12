@@ -1,0 +1,1 @@
+/home/ubuntu/stocks/tmp/broccoli_merge_trees-input_base_path-OZREJSsy.tmp/2/initializers/app-version.js

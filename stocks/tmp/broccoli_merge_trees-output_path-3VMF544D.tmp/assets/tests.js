@@ -1,0 +1,1 @@
+/home/ubuntu/stocks/tmp/source_map_concat-output_path-rbo1ivmJ.tmp/assets/tests.js

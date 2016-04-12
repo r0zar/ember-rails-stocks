@@ -1,0 +1,1 @@
+/home/ubuntu/stocks/tmp/funnel-input_base_path-aMikNKVm.tmp/0/app.js

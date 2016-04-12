@@ -1,0 +1,1 @@
+/home/ubuntu/stocks/tmp/funnel-input_base_path-7pzkXTzQ.tmp/0/bower_components/ember-cli-test-loader/test-loader.js

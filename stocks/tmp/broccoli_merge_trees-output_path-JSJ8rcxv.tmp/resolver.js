@@ -1,0 +1,1 @@
+/home/ubuntu/stocks/app/resolver.js
