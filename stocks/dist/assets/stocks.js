@@ -32,11 +32,250 @@ define('stocks/components/app-version', ['exports', 'ember-cli-app-version/compo
     name: name
   });
 });
+define('stocks/components/basic-dropdown/content', ['exports', 'ember-basic-dropdown/components/basic-dropdown/content'], function (exports, _emberBasicDropdownComponentsBasicDropdownContent) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberBasicDropdownComponentsBasicDropdownContent['default'];
+    }
+  });
+});
+define('stocks/components/basic-dropdown', ['exports', 'ember-basic-dropdown/components/basic-dropdown'], function (exports, _emberBasicDropdownComponentsBasicDropdown) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberBasicDropdownComponentsBasicDropdown['default'];
+    }
+  });
+});
+define('stocks/components/ember-wormhole', ['exports', 'ember-wormhole/components/ember-wormhole'], function (exports, _emberWormholeComponentsEmberWormhole) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberWormholeComponentsEmberWormhole['default'];
+    }
+  });
+});
+define('stocks/components/power-select/before-options', ['exports', 'ember-power-select/components/power-select/before-options'], function (exports, _emberPowerSelectComponentsPowerSelectBeforeOptions) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectComponentsPowerSelectBeforeOptions['default'];
+    }
+  });
+});
+define('stocks/components/power-select/options', ['exports', 'ember-power-select/components/power-select/options'], function (exports, _emberPowerSelectComponentsPowerSelectOptions) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectComponentsPowerSelectOptions['default'];
+    }
+  });
+});
+define('stocks/components/power-select/trigger', ['exports', 'ember-power-select/components/power-select/trigger'], function (exports, _emberPowerSelectComponentsPowerSelectTrigger) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectComponentsPowerSelectTrigger['default'];
+    }
+  });
+});
+define('stocks/components/power-select-multiple/trigger', ['exports', 'ember-power-select/components/power-select-multiple/trigger'], function (exports, _emberPowerSelectComponentsPowerSelectMultipleTrigger) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectComponentsPowerSelectMultipleTrigger['default'];
+    }
+  });
+});
+define('stocks/components/power-select-multiple', ['exports', 'ember-power-select/components/power-select-multiple'], function (exports, _emberPowerSelectComponentsPowerSelectMultiple) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectComponentsPowerSelectMultiple['default'];
+    }
+  });
+});
+define('stocks/components/power-select', ['exports', 'ember-power-select/components/power-select'], function (exports, _emberPowerSelectComponentsPowerSelect) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectComponentsPowerSelect['default'];
+    }
+  });
+});
+define('stocks/controllers/index', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Controller.extend({
+    actions: {
+      foo: function foo() {}
+    }
+  });
+});
+define('stocks/helpers/and', ['exports', 'ember', 'ember-truth-helpers/helpers/and'], function (exports, _ember, _emberTruthHelpersHelpersAnd) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersAnd.andHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersAnd.andHelper);
+  }
+
+  exports['default'] = forExport;
+});
+define('stocks/helpers/ember-power-select-build-selection', ['exports', 'ember-power-select/helpers/ember-power-select-build-selection'], function (exports, _emberPowerSelectHelpersEmberPowerSelectBuildSelection) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectHelpersEmberPowerSelectBuildSelection['default'];
+    }
+  });
+  Object.defineProperty(exports, 'emberPowerSelectBuildSelection', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectHelpersEmberPowerSelectBuildSelection.emberPowerSelectBuildSelection;
+    }
+  });
+});
+define('stocks/helpers/ember-power-select-is-selected', ['exports', 'ember-power-select/helpers/ember-power-select-is-selected'], function (exports, _emberPowerSelectHelpersEmberPowerSelectIsSelected) {
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectHelpersEmberPowerSelectIsSelected['default'];
+    }
+  });
+  Object.defineProperty(exports, 'emberPowerSelectIsSelected', {
+    enumerable: true,
+    get: function get() {
+      return _emberPowerSelectHelpersEmberPowerSelectIsSelected.emberPowerSelectIsSelected;
+    }
+  });
+});
+define('stocks/helpers/eq', ['exports', 'ember', 'ember-truth-helpers/helpers/equal'], function (exports, _ember, _emberTruthHelpersHelpersEqual) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersEqual.equalHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersEqual.equalHelper);
+  }
+
+  exports['default'] = forExport;
+});
+define('stocks/helpers/gt', ['exports', 'ember', 'ember-truth-helpers/helpers/gt'], function (exports, _ember, _emberTruthHelpersHelpersGt) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersGt.gtHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersGt.gtHelper);
+  }
+
+  exports['default'] = forExport;
+});
+define('stocks/helpers/gte', ['exports', 'ember', 'ember-truth-helpers/helpers/gte'], function (exports, _ember, _emberTruthHelpersHelpersGte) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersGte.gteHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersGte.gteHelper);
+  }
+
+  exports['default'] = forExport;
+});
+define('stocks/helpers/is-array', ['exports', 'ember', 'ember-truth-helpers/helpers/is-array'], function (exports, _ember, _emberTruthHelpersHelpersIsArray) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersIsArray.isArrayHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersIsArray.isArrayHelper);
+  }
+
+  exports['default'] = forExport;
+});
+define('stocks/helpers/lt', ['exports', 'ember', 'ember-truth-helpers/helpers/lt'], function (exports, _ember, _emberTruthHelpersHelpersLt) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersLt.ltHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersLt.ltHelper);
+  }
+
+  exports['default'] = forExport;
+});
+define('stocks/helpers/lte', ['exports', 'ember', 'ember-truth-helpers/helpers/lte'], function (exports, _ember, _emberTruthHelpersHelpersLte) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersLte.lteHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersLte.lteHelper);
+  }
+
+  exports['default'] = forExport;
+});
+define('stocks/helpers/not-eq', ['exports', 'ember', 'ember-truth-helpers/helpers/not-equal'], function (exports, _ember, _emberTruthHelpersHelpersNotEqual) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersNotEqual.notEqualHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersNotEqual.notEqualHelper);
+  }
+
+  exports['default'] = forExport;
+});
+define('stocks/helpers/not', ['exports', 'ember', 'ember-truth-helpers/helpers/not'], function (exports, _ember, _emberTruthHelpersHelpersNot) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersNot.notHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersNot.notHelper);
+  }
+
+  exports['default'] = forExport;
+});
+define('stocks/helpers/or', ['exports', 'ember', 'ember-truth-helpers/helpers/or'], function (exports, _ember, _emberTruthHelpersHelpersOr) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersOr.orHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersOr.orHelper);
+  }
+
+  exports['default'] = forExport;
+});
 define('stocks/helpers/pluralize', ['exports', 'ember-inflector/lib/helpers/pluralize'], function (exports, _emberInflectorLibHelpersPluralize) {
   exports['default'] = _emberInflectorLibHelpersPluralize['default'];
 });
 define('stocks/helpers/singularize', ['exports', 'ember-inflector/lib/helpers/singularize'], function (exports, _emberInflectorLibHelpersSingularize) {
   exports['default'] = _emberInflectorLibHelpersSingularize['default'];
+});
+define('stocks/helpers/xor', ['exports', 'ember', 'ember-truth-helpers/helpers/xor'], function (exports, _ember, _emberTruthHelpersHelpersXor) {
+
+  var forExport = null;
+
+  if (_ember['default'].Helper) {
+    forExport = _ember['default'].Helper.helper(_emberTruthHelpersHelpersXor.xorHelper);
+  } else if (_ember['default'].HTMLBars.makeBoundHelper) {
+    forExport = _ember['default'].HTMLBars.makeBoundHelper(_emberTruthHelpersHelpersXor.xorHelper);
+  }
+
+  exports['default'] = forExport;
 });
 define('stocks/initializers/app-version', ['exports', 'ember-cli-app-version/initializer-factory', 'stocks/config/environment'], function (exports, _emberCliAppVersionInitializerFactory, _stocksConfigEnvironment) {
   exports['default'] = {
@@ -189,6 +428,34 @@ define('stocks/initializers/transforms', ['exports', 'ember'], function (exports
     initialize: _ember['default'].K
   };
 });
+define('stocks/initializers/truth-helpers', ['exports', 'ember', 'ember-truth-helpers/utils/register-helper', 'ember-truth-helpers/helpers/and', 'ember-truth-helpers/helpers/or', 'ember-truth-helpers/helpers/equal', 'ember-truth-helpers/helpers/not', 'ember-truth-helpers/helpers/is-array', 'ember-truth-helpers/helpers/not-equal', 'ember-truth-helpers/helpers/gt', 'ember-truth-helpers/helpers/gte', 'ember-truth-helpers/helpers/lt', 'ember-truth-helpers/helpers/lte'], function (exports, _ember, _emberTruthHelpersUtilsRegisterHelper, _emberTruthHelpersHelpersAnd, _emberTruthHelpersHelpersOr, _emberTruthHelpersHelpersEqual, _emberTruthHelpersHelpersNot, _emberTruthHelpersHelpersIsArray, _emberTruthHelpersHelpersNotEqual, _emberTruthHelpersHelpersGt, _emberTruthHelpersHelpersGte, _emberTruthHelpersHelpersLt, _emberTruthHelpersHelpersLte) {
+  exports.initialize = initialize;
+
+  function initialize() /* container, application */{
+
+    // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
+    // will be auto-discovered.
+    if (_ember['default'].Helper) {
+      return;
+    }
+
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('and', _emberTruthHelpersHelpersAnd.andHelper);
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('or', _emberTruthHelpersHelpersOr.orHelper);
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('eq', _emberTruthHelpersHelpersEqual.equalHelper);
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('not', _emberTruthHelpersHelpersNot.notHelper);
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('is-array', _emberTruthHelpersHelpersIsArray.isArrayHelper);
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('not-eq', _emberTruthHelpersHelpersNotEqual.notEqualHelper);
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('gt', _emberTruthHelpersHelpersGt.gtHelper);
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('gte', _emberTruthHelpersHelpersGte.gteHelper);
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('lt', _emberTruthHelpersHelpersLt.ltHelper);
+    (0, _emberTruthHelpersUtilsRegisterHelper.registerHelper)('lte', _emberTruthHelpersHelpersLte.lteHelper);
+  }
+
+  exports['default'] = {
+    name: 'truth-helpers',
+    initialize: initialize
+  };
+});
 define("stocks/instance-initializers/ember-data", ["exports", "ember-data/-private/instance-initializers/initialize-store-service"], function (exports, _emberDataPrivateInstanceInitializersInitializeStoreService) {
   exports["default"] = {
     name: "ember-data",
@@ -236,6 +503,13 @@ define('stocks/router', ['exports', 'ember', 'stocks/config/environment'], funct
 
   exports['default'] = Router;
 });
+define('stocks/routes/index', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({
+    model: function model() {
+      return this.store.findAll('stock');
+    }
+  });
+});
 define('stocks/routes/stocks', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
 });
@@ -277,7 +551,7 @@ define("stocks/templates/application", ["exports"], function (exports) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("h2");
         dom.setAttribute(el1, "id", "title");
-        var el2 = dom.createTextNode("Welcome to Ember");
+        var el2 = dom.createTextNode("Welcome to...");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
@@ -296,6 +570,104 @@ define("stocks/templates/application", ["exports"], function (exports) {
       statements: [["content", "outlet", ["loc", [null, [3, 0], [3, 10]]]]],
       locals: [],
       templates: []
+    };
+  })());
+});
+define("stocks/templates/index", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.4",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 5,
+              "column": 0
+            }
+          },
+          "moduleName": "stocks/templates/index.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("  ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["content", "stock", ["loc", [null, [4, 2], [4, 11]]]]],
+        locals: ["stock"],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes", "wrong-type"]
+        },
+        "revision": "Ember@2.4.4",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 8,
+            "column": 0
+          }
+        },
+        "moduleName": "stocks/templates/index.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("h1");
+        var el2 = dom.createTextNode("Ember-Rails-Stocks!");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(2);
+        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        morphs[1] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+        return morphs;
+      },
+      statements: [["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "model", ["loc", [null, [3, 24], [3, 29]]]]], [], []], "onchange", ["subexpr", "action", ["foo"], [], ["loc", [null, [3, 39], [3, 53]]]]], 0, null, ["loc", [null, [3, 0], [5, 17]]]], ["content", "outlet", ["loc", [null, [7, 0], [7, 10]]]]],
+      locals: [],
+      templates: [child0]
     };
   })());
 });
@@ -377,7 +749,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("stocks/app")["default"].create({"name":"stocks","version":"0.0.0+"});
+  require("stocks/app")["default"].create({"name":"stocks","version":"0.0.0+6736a2fa"});
 }
 
 /* jshint ignore:end */
