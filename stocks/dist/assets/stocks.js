@@ -48,6 +48,9 @@ define('stocks/components/basic-dropdown', ['exports', 'ember-basic-dropdown/com
     }
   });
 });
+define('stocks/components/ember-chart', ['exports', 'ember-cli-chart/components/ember-chart'], function (exports, _emberCliChartComponentsEmberChart) {
+  exports['default'] = _emberCliChartComponentsEmberChart['default'];
+});
 define('stocks/components/ember-wormhole', ['exports', 'ember-wormhole/components/ember-wormhole'], function (exports, _emberWormholeComponentsEmberWormhole) {
   Object.defineProperty(exports, 'default', {
     enumerable: true,
@@ -106,8 +109,19 @@ define('stocks/components/power-select', ['exports', 'ember-power-select/compone
 });
 define('stocks/controllers/index', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller.extend({
+    chartData: _ember['default'].computed('model', function () {
+      return {
+        labels: this.get('model').mapBy('name'),
+        datasets: [{
+          label: 'Stock Price (USD)',
+          data: this.get('model').mapBy('lastSale')
+        }]
+      };
+    }),
     actions: {
-      foo: function foo() {}
+      chooseStock: function chooseStock(stock) {
+        this.set('target', stock);
+      }
     }
   });
 });
@@ -513,6 +527,14 @@ define('stocks/routes/index', ['exports', 'ember'], function (exports, _ember) {
 define('stocks/routes/stocks', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
 });
+define('stocks/serializers/stock', ['exports', 'ember', 'ember-data'], function (exports, _ember, _emberData) {
+  exports['default'] = _emberData['default'].JSONAPISerializer.extend({
+    keyForAttribute: function keyForAttribute(key) {
+      _ember['default'].Logger.debug('The key is:', key);
+      return _ember['default'].String.decamelize(key);
+    }
+  });
+});
 define('stocks/services/ajax', ['exports', 'ember-ajax/services/ajax'], function (exports, _emberAjaxServicesAjax) {
   Object.defineProperty(exports, 'default', {
     enumerable: true,
@@ -587,7 +609,7 @@ define("stocks/templates/index", ["exports"], function (exports) {
               "column": 0
             },
             "end": {
-              "line": 5,
+              "line": 12,
               "column": 0
             }
           },
@@ -601,6 +623,16 @@ define("stocks/templates/index", ["exports"], function (exports) {
           var el0 = dom.createDocumentFragment();
           var el1 = dom.createTextNode("  ");
           dom.appendChild(el0, el1);
+          var el1 = dom.createElement("strong");
+          var el2 = dom.createTextNode(" ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode(" ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode(" ");
+          dom.appendChild(el0, el1);
           var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
@@ -608,11 +640,12 @@ define("stocks/templates/index", ["exports"], function (exports) {
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          var morphs = new Array(2);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
+          morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
           return morphs;
         },
-        statements: [["content", "stock", ["loc", [null, [4, 2], [4, 11]]]]],
+        statements: [["content", "stock.symbol", ["loc", [null, [11, 11], [11, 27]]]], ["content", "stock.name", ["loc", [null, [11, 38], [11, 52]]]]],
         locals: ["stock"],
         templates: []
       };
@@ -631,7 +664,7 @@ define("stocks/templates/index", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 8,
+            "line": 17,
             "column": 0
           }
         },
@@ -655,17 +688,22 @@ define("stocks/templates/index", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(2);
+        var morphs = new Array(3);
         morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         morphs[1] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+        morphs[2] = dom.createMorphAt(fragment, 6, 6, contextualElement);
         return morphs;
       },
-      statements: [["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "model", ["loc", [null, [3, 24], [3, 29]]]]], [], []], "onchange", ["subexpr", "action", ["foo"], [], ["loc", [null, [3, 39], [3, 53]]]]], 0, null, ["loc", [null, [3, 0], [5, 17]]]], ["content", "outlet", ["loc", [null, [7, 0], [7, 10]]]]],
+      statements: [["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 10], [4, 15]]]]], [], []], "searchPlaceholder", "Type to filter...", "searchField", "name", "selected", ["subexpr", "@mut", [["get", "target", ["loc", [null, [7, 11], [7, 17]]]]], [], []], "onchange", ["subexpr", "action", ["chooseStock"], [], ["loc", [null, [8, 11], [8, 33]]]]], 0, null, ["loc", [null, [3, 0], [12, 17]]]], ["inline", "ember-chart", [], ["type", "Bar", "data", ["subexpr", "@mut", [["get", "chartData", ["loc", [null, [14, 30], [14, 39]]]]], [], []], "height", 500, "width", 800], ["loc", [null, [14, 0], [14, 62]]]], ["content", "outlet", ["loc", [null, [16, 0], [16, 10]]]]],
       locals: [],
       templates: [child0]
     };
@@ -749,7 +787,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("stocks/app")["default"].create({"name":"stocks","version":"0.0.0+6736a2fa"});
+  require("stocks/app")["default"].create({"name":"stocks","version":"0.0.0+d2367244"});
 }
 
 /* jshint ignore:end */

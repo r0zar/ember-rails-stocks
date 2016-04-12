@@ -356,6 +356,15 @@ define('stocks/tests/routes/stocks.jshint', ['exports'], function (exports) {
     assert.ok(true, 'routes/stocks.js should pass jshint.');
   });
 });
+define('stocks/tests/serializers/stock.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - serializers/stock.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'serializers/stock.js should pass jshint.');
+  });
+});
 define('stocks/tests/test-helper', ['exports', 'stocks/tests/helpers/resolver', 'ember-qunit'], function (exports, _stocksTestsHelpersResolver, _emberQunit) {
 
   (0, _emberQunit.setResolver)(_stocksTestsHelpersResolver['default']);
@@ -453,6 +462,31 @@ define('stocks/tests/unit/routes/stocks-test.jshint', ['exports'], function (exp
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/stocks-test.js should pass jshint.');
+  });
+});
+define('stocks/tests/unit/serializers/stock-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('stock', 'Unit | Serializer | stock', {
+    // Specify the other units that are required for this test.
+    needs: ['serializer:stock']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it serializes records', function (assert) {
+    var record = this.subject();
+
+    var serializedRecord = record.serialize();
+
+    assert.ok(serializedRecord);
+  });
+});
+define('stocks/tests/unit/serializers/stock-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/serializers/stock-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/serializers/stock-test.js should pass jshint.');
   });
 });
 /* jshint ignore:start */

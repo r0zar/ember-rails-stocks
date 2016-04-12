@@ -1,7 +1,16 @@
 <h1>Ember-Rails-Stocks!</h1>
 
-{{#power-select options=model onchange=(action "foo") as |stock|}}
-  {{stock}}
+{{#power-select
+  options=model
+  searchPlaceholder="Type to filter..."
+  searchField="name"
+  selected=target
+  onchange=(action "chooseStock")
+  as |stock|
+}}
+  <strong> {{stock.symbol}} </strong> {{stock.name}}
 {{/power-select}}
+
+{{ember-chart type='Bar' data=chartData height=500 width=800}}
 
 {{outlet}}
