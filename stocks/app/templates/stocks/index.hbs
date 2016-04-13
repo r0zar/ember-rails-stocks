@@ -1,0 +1,13 @@
+<h2>List</h2>
+
+{{#each model as |stock|}}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{stock.name}}</h3>
+        </div>
+        <div class="panel-body">
+            <p>Symbol: {{stock.symbol}}</p>
+            <p>Last Sale: {{stock.lastSale}}</p>
+        </div>
+    </div>
+{{/each}}
