@@ -11,7 +11,7 @@
   <strong> {{stock.symbol}} </strong> {{stock.name}}
 {{/power-select}}
 
-<p>{{target.symbol}}</p>
+<br />
 
 {{ember-chart 
   type='Bar'
@@ -19,5 +19,7 @@
   height=500 
   width=800
 }}
+
+<h2>{{target.symbol}}</h2>
 
 {{outlet}}
