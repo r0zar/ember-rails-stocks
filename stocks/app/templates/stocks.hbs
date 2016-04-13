@@ -1,13 +1,13 @@
 <h2>Stock List</h2>
 
-{{#each model as |library|}}
+{{#each model as |stock|}}
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title"><strong>{{stock.name}}</strong></h3>
         </div>
         <div class="panel-body">
-            <p>Address: {{stock.symbol}}</p>
-            <p>Phone: {{stock.lastSale}}</p>
+            <p>Symbol: {{stock.symbol}}</p>
+            <p>Last Sale: {{stock.lastSale}}</p>
         </div>
     </div>
 {{/each}}{{outlet}}
