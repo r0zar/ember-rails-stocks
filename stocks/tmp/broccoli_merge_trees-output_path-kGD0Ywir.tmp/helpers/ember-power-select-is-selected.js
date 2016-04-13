@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/broccoli_merge_trees-input_base_path-ZwYBdYec.tmp/3/helpers/ember-power-select-is-selected.js

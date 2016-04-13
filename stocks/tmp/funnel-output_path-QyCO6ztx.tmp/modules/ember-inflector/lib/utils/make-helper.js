@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-auzMFhM8.tmp/0/lib/utils/make-helper.js

@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/broccoli_merge_trees-input_base_path-fJ34n5N0.tmp/2/stocks/tests/unit/serializers/stock-test.jshint.js

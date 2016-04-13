@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-CwKRRKUe.tmp/0/fake-owner.js

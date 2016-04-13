@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-Q5K065VF.tmp/0/components/basic-dropdown.js
