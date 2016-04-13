@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-AVvCzoP6.tmp/0/initializer-factory.js

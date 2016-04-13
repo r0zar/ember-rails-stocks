@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-dapV7xvc.tmp/0/services/ajax.js

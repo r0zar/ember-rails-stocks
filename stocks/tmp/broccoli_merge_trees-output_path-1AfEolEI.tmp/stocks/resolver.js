@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/broccoli_merge_trees-input_base_path-abUrnLvI.tmp/1/stocks/resolver.js

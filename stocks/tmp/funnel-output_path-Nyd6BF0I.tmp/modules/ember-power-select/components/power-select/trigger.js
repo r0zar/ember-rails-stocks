@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-K2hHw5IH.tmp/0/components/power-select/trigger.js

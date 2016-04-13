@@ -107,14 +107,17 @@ define('stocks/components/power-select', ['exports', 'ember-power-select/compone
     }
   });
 });
+define('stocks/components/stock-list', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({});
+});
 define('stocks/controllers/index', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller.extend({
     chartData: _ember['default'].computed('model', function () {
       return {
-        labels: this.get('model').mapBy('name'),
+        labels: [this.store.findRecord('stock', 9666).name],
         datasets: [{
-          label: 'Stock Price (USD)',
-          data: this.get('model').mapBy('lastSale')
+          label: 'Stock Last Sale (USD)',
+          data: ["10.00"]
         }]
       };
     }),
@@ -513,6 +516,7 @@ define('stocks/router', ['exports', 'ember', 'stocks/config/environment'], funct
 
   Router.map(function () {
     this.route('stocks');
+    this.route('stock', { path: '/stocks/:stock_id' });
   });
 
   exports['default'] = Router;
@@ -524,13 +528,24 @@ define('stocks/routes/index', ['exports', 'ember'], function (exports, _ember) {
     }
   });
 });
+define('stocks/routes/stock', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({
+    model: function model(param) {
+      _ember['default'].Logger.debug('json: ', this.store.query('stock', param));
+      return this.store.query('stock', param);
+    }
+  });
+});
 define('stocks/routes/stocks', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Route.extend({});
+  exports['default'] = _ember['default'].Route.extend({
+    model: function model() {
+      return this.store.findAll('stock');
+    }
+  });
 });
 define('stocks/serializers/stock', ['exports', 'ember', 'ember-data'], function (exports, _ember, _emberData) {
   exports['default'] = _emberData['default'].JSONAPISerializer.extend({
     keyForAttribute: function keyForAttribute(key) {
-      _ember['default'].Logger.debug('The key is:', key);
       return _ember['default'].String.decamelize(key);
     }
   });
@@ -592,6 +607,112 @@ define("stocks/templates/application", ["exports"], function (exports) {
       statements: [["content", "outlet", ["loc", [null, [3, 0], [3, 10]]]]],
       locals: [],
       templates: []
+    };
+  })());
+});
+define("stocks/templates/components/stock-list", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.4",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 6,
+              "column": 2
+            },
+            "end": {
+              "line": 8,
+              "column": 2
+            }
+          },
+          "moduleName": "stocks/templates/components/stock-list.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("    ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("li");
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
+          return morphs;
+        },
+        statements: [["content", "stock.name", ["loc", [null, [7, 8], [7, 22]]]]],
+        locals: ["stock"],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type", "multiple-nodes"]
+        },
+        "revision": "Ember@2.4.4",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": 0
+          }
+        },
+        "moduleName": "stocks/templates/components/stock-list.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("h2");
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("ul");
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(3);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        morphs[1] = dom.createMorphAt(dom.childAt(fragment, [2]), 0, 0);
+        morphs[2] = dom.createMorphAt(dom.childAt(fragment, [4]), 1, 1);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["content", "yield", ["loc", [null, [1, 0], [1, 9]]]], ["content", "title", ["loc", [null, [3, 4], [3, 13]]]], ["block", "each", [["get", "stock", ["loc", [null, [6, 10], [6, 15]]]]], [], 0, null, ["loc", [null, [6, 2], [8, 11]]]]],
+      locals: [],
+      templates: [child0]
     };
   })());
 });
@@ -664,7 +785,7 @@ define("stocks/templates/index", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 17,
+            "line": 24,
             "column": 0
           }
         },
@@ -686,6 +807,12 @@ define("stocks/templates/index", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
+        var el1 = dom.createElement("p");
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
@@ -697,25 +824,26 @@ define("stocks/templates/index", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(3);
+        var morphs = new Array(4);
         morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
-        morphs[1] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+        morphs[1] = dom.createMorphAt(dom.childAt(fragment, [4]), 0, 0);
         morphs[2] = dom.createMorphAt(fragment, 6, 6, contextualElement);
+        morphs[3] = dom.createMorphAt(fragment, 8, 8, contextualElement);
         return morphs;
       },
-      statements: [["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 10], [4, 15]]]]], [], []], "searchPlaceholder", "Type to filter...", "searchField", "name", "selected", ["subexpr", "@mut", [["get", "target", ["loc", [null, [7, 11], [7, 17]]]]], [], []], "onchange", ["subexpr", "action", ["chooseStock"], [], ["loc", [null, [8, 11], [8, 33]]]]], 0, null, ["loc", [null, [3, 0], [12, 17]]]], ["inline", "ember-chart", [], ["type", "Bar", "data", ["subexpr", "@mut", [["get", "chartData", ["loc", [null, [14, 30], [14, 39]]]]], [], []], "height", 500, "width", 800], ["loc", [null, [14, 0], [14, 62]]]], ["content", "outlet", ["loc", [null, [16, 0], [16, 10]]]]],
+      statements: [["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 10], [4, 15]]]]], [], []], "searchPlaceholder", "Type to filter...", "searchField", "name", "selected", ["subexpr", "@mut", [["get", "target", ["loc", [null, [7, 11], [7, 17]]]]], [], []], "onchange", ["subexpr", "action", ["chooseStock"], [], ["loc", [null, [8, 11], [8, 33]]]]], 0, null, ["loc", [null, [3, 0], [12, 17]]]], ["content", "target.symbol", ["loc", [null, [14, 3], [14, 20]]]], ["inline", "ember-chart", [], ["type", "Bar", "data", ["subexpr", "@mut", [["get", "chartData", ["loc", [null, [18, 7], [18, 16]]]]], [], []], "height", 500, "width", 800], ["loc", [null, [16, 0], [21, 2]]]], ["content", "outlet", ["loc", [null, [23, 0], [23, 10]]]]],
       locals: [],
       templates: [child0]
     };
   })());
 });
-define("stocks/templates/stocks", ["exports"], function (exports) {
+define("stocks/templates/stock", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["wrong-type"]
+          "problems": ["multiple-nodes", "wrong-type"]
         },
         "revision": "Ember@2.4.4",
         "loc": {
@@ -725,7 +853,66 @@ define("stocks/templates/stocks", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 5,
+            "column": 0
+          }
+        },
+        "moduleName": "stocks/templates/stock.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("h2");
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("h3");
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(3);
+        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 0, 0);
+        morphs[1] = dom.createMorphAt(dom.childAt(fragment, [2]), 0, 0);
+        morphs[2] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+        return morphs;
+      },
+      statements: [["content", "symbol", ["loc", [null, [1, 4], [1, 14]]]], ["content", "name", ["loc", [null, [2, 4], [2, 12]]]], ["content", "outlet", ["loc", [null, [4, 0], [4, 10]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define("stocks/templates/stocks", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type", "multiple-nodes"]
+        },
+        "revision": "Ember@2.4.4",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 4,
             "column": 0
           }
         },
@@ -739,17 +926,22 @@ define("stocks/templates/stocks", ["exports"], function (exports) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
+        var morphs = new Array(2);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]]]],
+      statements: [["inline", "stock-list", [], ["title", "List of Stocks", "stock", ["subexpr", "@mut", [["get", "model", ["loc", [null, [1, 42], [1, 47]]]]], [], []]], ["loc", [null, [1, 0], [1, 49]]]], ["content", "outlet", ["loc", [null, [3, 0], [3, 10]]]]],
       locals: [],
       templates: []
     };
@@ -787,7 +979,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("stocks/app")["default"].create({"name":"stocks","version":"0.0.0+d2367244"});
+  require("stocks/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"stocks","version":"0.0.0+473f84cf"});
 }
 
 /* jshint ignore:end */

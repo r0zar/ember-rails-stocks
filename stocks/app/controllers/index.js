@@ -3,10 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   chartData: Ember.computed('model', function(){
     return {
-      labels: this.get('model').mapBy('name'),
+      labels: [this.store.findRecord('stock', 9666).name],
       datasets: [{
-        label: 'Stock Price (USD)',
-        data: this.get('model').mapBy('lastSale')
+        label: 'Stock Last Sale (USD)',
+        data: ["10.00"] 
       }]
     };
   }),

@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-ETIsh5TD.tmp/0/lib/helpers/pluralize.js
