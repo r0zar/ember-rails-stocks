@@ -10,4 +10,12 @@ namespace :stocks do
       Stock.create!(row.to_hash)
     end
   end
+  task shortport: :environment do
+    csv_text = File.read('shortlist.csv')
+    csv = CSV.parse(csv_text, :headers => true, :row_sep => ",\r\n")
+    csv.each do |row|
+      p row
+      Stock.create!(row.to_hash)
+    end
+  end   
 end

@@ -1,3 +1,3 @@
 class StockSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :symbol, :name, :last_sale, :market_cap
 end
