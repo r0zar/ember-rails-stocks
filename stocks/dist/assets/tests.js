@@ -7,15 +7,6 @@ define('stocks/tests/app.jshint', ['exports'], function (exports) {
     assert.ok(true, 'app.js should pass jshint.');
   });
 });
-define('stocks/tests/components/stock-list.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - components/stock-list.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'components/stock-list.js should pass jshint.');
-  });
-});
 define('stocks/tests/controllers/index.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -523,6 +514,24 @@ define('stocks/tests/routes/stock.jshint', ['exports'], function (exports) {
     assert.ok(true, 'routes/stock.js should pass jshint.');
   });
 });
+define('stocks/tests/routes/stocks/index.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - routes/stocks/index.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/stocks/index.js should pass jshint.');
+  });
+});
+define('stocks/tests/routes/stocks/new.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - routes/stocks/new.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/stocks/new.js should pass jshint.');
+  });
+});
 define('stocks/tests/routes/stocks.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -574,6 +583,28 @@ define('stocks/tests/unit/controllers/index-test.jshint', ['exports'], function 
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/controllers/index-test.js should pass jshint.');
+  });
+});
+define('stocks/tests/unit/controllers/stocks-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('controller:stocks', 'Unit | Controller | stocks', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var controller = this.subject();
+    assert.ok(controller);
+  });
+});
+define('stocks/tests/unit/controllers/stocks-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/controllers/stocks-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/controllers/stocks-test.js should pass jshint.');
   });
 });
 define('stocks/tests/unit/models/stock-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
