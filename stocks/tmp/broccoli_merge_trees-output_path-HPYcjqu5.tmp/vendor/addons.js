@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/source_map_concat-output_path-A3OczZ2z.tmp/addons.js

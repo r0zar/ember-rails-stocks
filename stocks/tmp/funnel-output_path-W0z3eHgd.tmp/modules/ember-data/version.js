@@ -1,0 +1,1 @@
+/home/ubuntu/ember-rails-stocks/stocks/tmp/creator-output_path-dhWFUkVs.tmp/version.js
