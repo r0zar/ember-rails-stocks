@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/broccoli_merge_trees-input_base_path-We8eYHeR.tmp/0/modules/ember-cli-app-version/initializer-factory.js

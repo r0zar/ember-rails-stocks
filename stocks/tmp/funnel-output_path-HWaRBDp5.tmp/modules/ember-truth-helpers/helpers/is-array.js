@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-NBnPwNHT.tmp/0/helpers/is-array.js

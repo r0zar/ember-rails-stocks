@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/broccoli_merge_trees-input_base_path-ihUxzMpO.tmp/2/components/ember-wormhole.js

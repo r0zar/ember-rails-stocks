@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/broccoli_merge_trees-input_base_path-iYtTqzmD.tmp/1/helpers/ember-basic-dropdown.js

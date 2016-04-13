@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/broccoli_merge_trees-input_base_path-hrH1XQjh.tmp/17/helpers/module-for-acceptance.js

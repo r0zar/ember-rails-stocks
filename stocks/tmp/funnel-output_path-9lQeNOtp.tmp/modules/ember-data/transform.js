@@ -1,1 +1,0 @@
-/home/ubuntu/stocks/node_modules/ember-data/addon/transform.js

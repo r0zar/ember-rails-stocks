@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-4OZaXYyV.tmp/0//vendor-prefix.js

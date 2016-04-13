@@ -1,1 +1,0 @@
-/home/ubuntu/stocks/tmp/broccoli_merge_trees-input_base_path-JYPmeYHX.tmp/0/test-helper.jshint.js

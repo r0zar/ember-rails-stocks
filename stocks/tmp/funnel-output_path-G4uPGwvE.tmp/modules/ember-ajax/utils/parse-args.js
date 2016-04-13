@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-VhtcPu5n.tmp/0/utils/parse-args.js

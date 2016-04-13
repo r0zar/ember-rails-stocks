@@ -1,1 +1,0 @@
-/home/ubuntu/stocks/tmp/funnel-input_base_path-NRankbGc.tmp/0//testem.js

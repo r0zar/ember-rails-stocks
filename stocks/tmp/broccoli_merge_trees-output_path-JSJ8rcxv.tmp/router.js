@@ -1,1 +1,0 @@
-/home/ubuntu/stocks/app/router.js

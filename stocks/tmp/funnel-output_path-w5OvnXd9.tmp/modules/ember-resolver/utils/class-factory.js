@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-GkrIgW2w.tmp/0/utils/class-factory.js

@@ -1,1 +1,0 @@
-/home/ubuntu/stocks/tmp/broccoli_merge_trees-input_base_path-s7hqQ21U.tmp/1/stocks/templates/stocks.js
