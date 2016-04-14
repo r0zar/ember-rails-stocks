@@ -31,7 +31,8 @@ You can also [view my application live](http://54.210.196.143:4200/).
 
 Run this inside the `stocks-api` root directory
 
-1. `rake db:migrate`
+1. `bundle install`
+2. `rake db:migrate`
 
 ### Ember
 
