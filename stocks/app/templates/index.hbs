@@ -1,4 +1,6 @@
-<h1>Ember-Rails-Stocks!</h1>
+<div class="jumbotron text-center">
+
+<h1>Search for a stock</h1>
 
 {{#power-select
   options=model
@@ -13,7 +15,6 @@
 
 <br />
 
-
 {{ember-chart 
   type='Bar'
   data=chartData 
@@ -22,5 +23,9 @@
 }}
 
 <h2>{{target.symbol}}</h2>
+
+<p>Sign the guestbook below.</p>
+
+
 
 {{outlet}}
