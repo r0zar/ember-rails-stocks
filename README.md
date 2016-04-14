@@ -38,10 +38,11 @@ Run these inside the `stocks-api` root directory
 
 Run these inside the `stocks` root directory
 
-1. `ember install ember-cli-sass`
-2. `ember install ember-cli-bootstrap-sassy`
-3. `ember install ember-power-select`
-4. `ember install ember-cli-chart`
+1. `bower install`
+2. `ember install ember-cli-sass`
+3. `ember install ember-cli-bootstrap-sassy`
+4. `ember install ember-power-select`
+5. `ember install ember-cli-chart`
 
 ## Usage
 
