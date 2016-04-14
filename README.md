@@ -29,7 +29,7 @@ You can also [view my application live](http://54.210.196.143:4200/).
 
 ### Rails
 
-Run this inside the `stocks-api` root directory
+Run these inside the `stocks-api` root directory
 
 1. `bundle install`
 2. `rake db:migrate`
