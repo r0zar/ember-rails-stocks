@@ -6,7 +6,7 @@
   options=model
   searchPlaceholder="Type to filter..."
   searchField="name"
-  selected=target
+  selected=theStock
   onchange=(action "chooseStock")
   as |stock|
 }}
@@ -19,22 +19,27 @@
   type='Bar'
   data=chartData 
   height=500 
-  width=800
+  width=600
 }}
 
-<h2>{{target.symbol}}</h2>
+<h2>{{theStock.symbol}}</h2>
 
-<p>Sign the guestbook below.</p>
+<p>Register for a feed on this stock.</p>
 
     <div class="form-horizontal form-group form-group-lg row">
         <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
           {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-            <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}}>Sign</button>
+            <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}}  {{action 'saveInvitation'}}>Subscribe</button>
         </div>
 
     </div>
+    
+    {{#if responseMessage}}
+      <div class="alert alert-success">{{responseMessage}}</div>
+    {{/if}}
+    
 
 </div>
 

@@ -1,17 +1,52 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  chartData: {  
-      labels: ["Stock X"],
+  
+  theStock: '',
+
+  emailAddress: '',
+  
+  theStockChanged: Ember.observer('theStock', function() {
+    console.log('theStock => ', this.get('theStock.name'));
+  }),
+
+  actualEmailAddress: Ember.computed('emailAddress', function() {
+    console.log('actualEmailAddress function is called: ', this.get('emailAddress'));
+  }),
+  
+  emailAddressChanged: Ember.observer('emailAddress', function() {
+    console.log('observer is called', this.get('emailAddress'));
+  }),
+ 
+  chartData: Ember.computed('theStock', function() {
+    console.log('logging this jawn', this.get('theStock'));
+    return {  
+      labels: [ this.get('theStock.name')  ],
       datasets: [{
-        data: ["10.00"] 
+        data: [ this.get('theStock.lastSale') ] 
       }]
+    }
     
-  },
+  }),
+
   actions: {
     chooseStock(stock) {
-      this.set('target',stock);
+      this.set('theStock', stock);
+    },
+    saveInvitation() {
+
+      const email = this.get('emailAddress');
+
+      const newInvitation = this.store.createRecord('invitation', { email: email});
+      newInvitation.save();
+
+      this.set('responseMessage', `Thank you! We've just saved your email address: ${this.get('emailAddress')}`);
+      this.set('emailAddress', '');
     }
   },
-  isDisabled: true
+
+  isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
+
+  isDisabled: Ember.computed.not('isValid')
+
 });

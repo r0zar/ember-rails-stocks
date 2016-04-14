@@ -107,20 +107,55 @@ define('stocks/components/power-select', ['exports', 'ember-power-select/compone
     }
   });
 });
-define("stocks/controllers/index", ["exports", "ember"], function (exports, _ember) {
-  exports["default"] = _ember["default"].Controller.extend({
-    chartData: {
-      labels: ["Stock X"],
-      datasets: [{
-        data: ["10.00"]
-      }]
+define('stocks/controllers/index', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Controller.extend({
 
-    },
+    theStock: '',
+
+    emailAddress: '',
+
+    theStockChanged: _ember['default'].observer('theStock', function () {
+      console.log('theStock => ', this.get('theStock.name'));
+    }),
+
+    actualEmailAddress: _ember['default'].computed('emailAddress', function () {
+      console.log('actualEmailAddress function is called: ', this.get('emailAddress'));
+    }),
+
+    emailAddressChanged: _ember['default'].observer('emailAddress', function () {
+      console.log('observer is called', this.get('emailAddress'));
+    }),
+
+    chartData: _ember['default'].computed('theStock', function () {
+      console.log('logging this jawn', this.get('theStock'));
+      return {
+        labels: [this.get('theStock.name')],
+        datasets: [{
+          data: [this.get('theStock.lastSale')]
+        }]
+      };
+    }),
+
     actions: {
       chooseStock: function chooseStock(stock) {
-        this.set('target', stock);
+        this.set('theStock', stock);
+      },
+      saveInvitation: function saveInvitation() {
+
+        var email = this.get('emailAddress');
+
+        var newInvitation = this.store.createRecord('invitation', { email: email });
+        newInvitation.save();
+
+        this.set('responseMessage', 'Thank you! We\'ve just saved your email address: ' + this.get('emailAddress'));
+        this.set('emailAddress', '');
       }
-    }
+    },
+
+    isValid: _ember['default'].computed.match('emailAddress', /^.+@.+\..+$/),
+
+    isDisabled: _ember['default'].computed.not('isValid')
+
   });
 });
 define('stocks/controllers/stocks', ['exports', 'ember'], function (exports, _ember) {
@@ -490,6 +525,11 @@ define("stocks/instance-initializers/global", ["exports"], function (exports) {
     initialize: initialize
   };
 });
+define('stocks/models/invitation', ['exports', 'ember-data'], function (exports, _emberData) {
+  exports['default'] = _emberData['default'].Model.extend({
+    email: _emberData['default'].attr('string')
+  });
+});
 define('stocks/models/stock', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({
     symbol: _emberData['default'].attr('string'),
@@ -669,11 +709,11 @@ define("stocks/templates/index", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 3,
+              "line": 5,
               "column": 0
             },
             "end": {
-              "line": 12,
+              "line": 14,
               "column": 0
             }
           },
@@ -709,8 +749,53 @@ define("stocks/templates/index", ["exports"], function (exports) {
           morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
           return morphs;
         },
-        statements: [["content", "stock.symbol", ["loc", [null, [11, 11], [11, 27]]]], ["content", "stock.name", ["loc", [null, [11, 38], [11, 52]]]]],
+        statements: [["content", "stock.symbol", ["loc", [null, [13, 11], [13, 27]]]], ["content", "stock.name", ["loc", [null, [13, 38], [13, 52]]]]],
         locals: ["stock"],
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.4",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 39,
+              "column": 4
+            },
+            "end": {
+              "line": 41,
+              "column": 4
+            }
+          },
+          "moduleName": "stocks/templates/index.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("      ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "alert alert-success");
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
+          return morphs;
+        },
+        statements: [["content", "responseMessage", ["loc", [null, [40, 39], [40, 58]]]]],
+        locals: [],
         templates: []
       };
     })();
@@ -728,7 +813,7 @@ define("stocks/templates/index", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 27,
+            "line": 47,
             "column": 0
           }
         },
@@ -740,26 +825,75 @@ define("stocks/templates/index", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("h1");
-        var el2 = dom.createTextNode("Ember-Rails-Stocks!");
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "jumbotron text-center");
+        var el2 = dom.createTextNode("\n\n");
         dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("br");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("h2");
+        var el2 = dom.createElement("h1");
+        var el3 = dom.createTextNode("Search for a stock");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("br");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h2");
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        var el3 = dom.createTextNode("Register for a feed on this stock.");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "form-horizontal form-group form-group-lg row");
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2");
+        var el4 = dom.createTextNode("\n          ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3");
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("button");
+        dom.setAttribute(el4, "class", "btn btn-primary btn-lg btn-block");
+        var el5 = dom.createTextNode("Subscribe");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n    \n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("    \n\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
@@ -771,16 +905,23 @@ define("stocks/templates/index", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(4);
-        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
-        morphs[1] = dom.createMorphAt(fragment, 6, 6, contextualElement);
-        morphs[2] = dom.createMorphAt(dom.childAt(fragment, [8]), 0, 0);
-        morphs[3] = dom.createMorphAt(fragment, 10, 10, contextualElement);
+        var element0 = dom.childAt(fragment, [0]);
+        var element1 = dom.childAt(element0, [13]);
+        var element2 = dom.childAt(element1, [3, 1]);
+        var morphs = new Array(8);
+        morphs[0] = dom.createMorphAt(element0, 3, 3);
+        morphs[1] = dom.createMorphAt(element0, 7, 7);
+        morphs[2] = dom.createMorphAt(dom.childAt(element0, [9]), 0, 0);
+        morphs[3] = dom.createMorphAt(dom.childAt(element1, [1]), 1, 1);
+        morphs[4] = dom.createAttrMorph(element2, 'disabled');
+        morphs[5] = dom.createElementMorph(element2);
+        morphs[6] = dom.createMorphAt(element0, 15, 15);
+        morphs[7] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 10], [4, 15]]]]], [], []], "searchPlaceholder", "Type to filter...", "searchField", "name", "selected", ["subexpr", "@mut", [["get", "target", ["loc", [null, [7, 11], [7, 17]]]]], [], []], "onchange", ["subexpr", "action", ["chooseStock"], [], ["loc", [null, [8, 11], [8, 33]]]]], 0, null, ["loc", [null, [3, 0], [12, 17]]]], ["inline", "ember-chart", [], ["type", "Bar", "data", ["subexpr", "@mut", [["get", "chartData", ["loc", [null, [19, 7], [19, 16]]]]], [], []], "height", 500, "width", 800], ["loc", [null, [17, 0], [22, 2]]]], ["content", "target.symbol", ["loc", [null, [24, 4], [24, 21]]]], ["content", "outlet", ["loc", [null, [26, 0], [26, 10]]]]],
+      statements: [["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "model", ["loc", [null, [6, 10], [6, 15]]]]], [], []], "searchPlaceholder", "Type to filter...", "searchField", "name", "selected", ["subexpr", "@mut", [["get", "theStock", ["loc", [null, [9, 11], [9, 19]]]]], [], []], "onchange", ["subexpr", "action", ["chooseStock"], [], ["loc", [null, [10, 11], [10, 33]]]]], 0, null, ["loc", [null, [5, 0], [14, 17]]]], ["inline", "ember-chart", [], ["type", "Bar", "data", ["subexpr", "@mut", [["get", "chartData", ["loc", [null, [20, 7], [20, 16]]]]], [], []], "height", 500, "width", 600], ["loc", [null, [18, 0], [23, 2]]]], ["content", "theStock.symbol", ["loc", [null, [25, 4], [25, 23]]]], ["inline", "input", [], ["type", "email", "value", ["subexpr", "@mut", [["get", "emailAddress", ["loc", [null, [31, 37], [31, 49]]]]], [], []], "class", "form-control", "placeholder", "Please type your e-mail address.", "autofocus", "autofocus"], ["loc", [null, [31, 10], [31, 141]]]], ["attribute", "disabled", ["get", "isDisabled", ["loc", [null, [34, 72], [34, 82]]]]], ["element", "action", ["saveInvitation"], [], ["loc", [null, [34, 86], [34, 113]]]], ["block", "if", [["get", "responseMessage", ["loc", [null, [39, 10], [39, 25]]]]], [], 1, null, ["loc", [null, [39, 4], [41, 11]]]], ["content", "outlet", ["loc", [null, [46, 0], [46, 10]]]]],
       locals: [],
-      templates: [child0]
+      templates: [child0, child1]
     };
   })());
 });
@@ -1244,7 +1385,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("stocks/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"stocks","version":"0.0.0+fd0dcf5c"});
+  require("stocks/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"stocks","version":"0.0.0+b8721dad"});
 }
 
 /* jshint ignore:end */

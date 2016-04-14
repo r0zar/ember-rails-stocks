@@ -13,7 +13,7 @@ define('stocks/tests/controllers/index.jshint', ['exports'], function (exports) 
   QUnit.module('JSHint - controllers/index.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'controllers/index.js should pass jshint.');
+    assert.ok(false, 'controllers/index.js should pass jshint.\ncontrollers/index.js: line 28, col 6, Missing semicolon.\n\n1 error');
   });
 });
 define('stocks/tests/controllers/stocks.jshint', ['exports'], function (exports) {
@@ -469,6 +469,15 @@ define('stocks/tests/integration/components/stock-list-test.jshint', ['exports']
     assert.ok(true, 'integration/components/stock-list-test.js should pass jshint.');
   });
 });
+define('stocks/tests/models/invitation.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - models/invitation.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/invitation.js should pass jshint.');
+  });
+});
 define('stocks/tests/models/stock.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -565,6 +574,28 @@ define('stocks/tests/unit/controllers/index-test.jshint', ['exports'], function 
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/controllers/index-test.js should pass jshint.');
+  });
+});
+define('stocks/tests/unit/models/invitation-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('invitation', 'Unit | Model | invitation', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('stocks/tests/unit/models/invitation-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/models/invitation-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/invitation-test.js should pass jshint.');
   });
 });
 define('stocks/tests/unit/models/stock-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
