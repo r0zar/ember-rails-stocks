@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-Q3jhqFGw.tmp/0/components/ember-wormhole.js

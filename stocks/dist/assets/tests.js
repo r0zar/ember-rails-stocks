@@ -16,6 +16,15 @@ define('stocks/tests/controllers/index.jshint', ['exports'], function (exports) 
     assert.ok(true, 'controllers/index.js should pass jshint.');
   });
 });
+define('stocks/tests/controllers/stocks.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - controllers/stocks.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'controllers/stocks.js should pass jshint.');
+  });
+});
 define('stocks/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = destroyApp;
 
@@ -503,15 +512,6 @@ define('stocks/tests/routes/index.jshint', ['exports'], function (exports) {
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/index.js should pass jshint.');
-  });
-});
-define('stocks/tests/routes/stock.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - routes/stock.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/stock.js should pass jshint.');
   });
 });
 define('stocks/tests/routes/stocks.jshint', ['exports'], function (exports) {

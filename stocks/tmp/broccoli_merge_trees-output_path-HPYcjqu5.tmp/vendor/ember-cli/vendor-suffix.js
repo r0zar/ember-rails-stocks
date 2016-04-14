@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/config_replace-output_path-eBOsyHWg.tmp/vendor-suffix.js

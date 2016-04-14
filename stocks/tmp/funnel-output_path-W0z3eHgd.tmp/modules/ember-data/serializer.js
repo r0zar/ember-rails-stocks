@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/node_modules/ember-data/addon/serializer.js

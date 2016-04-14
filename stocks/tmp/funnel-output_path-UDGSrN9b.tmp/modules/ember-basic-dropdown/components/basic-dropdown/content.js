@@ -1,1 +1,0 @@
-/home/ubuntu/ember-rails-stocks/stocks/tmp/funnel-input_base_path-NRpPgRel.tmp/0/components/basic-dropdown/content.js
