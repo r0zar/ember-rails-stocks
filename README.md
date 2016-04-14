@@ -46,7 +46,7 @@ Run these inside the `stocks` root directory
 
 ## Usage
 
-The application is mainly administrated with two rake tasks: (you will only need to run one)
+Two rake tasks have been set up for loading csv data into the rails backend: (you will only need to run one)
 
 * `rake stocks:shortport`
 * `rake stocks:import`
