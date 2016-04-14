@@ -46,7 +46,7 @@ Run these inside the `stocks` root directory
 
 ## Usage
 
-The application is mainly administrated with two rake tasks: (you will only need to run one at a time)
+The application is mainly administrated with two rake tasks: (you will only need to run one)
 
 * `rake stocks:shortport`
 * `rake stocks:import`
