@@ -39,6 +39,7 @@ Run these inside the `stocks` root directory
 
 1. `ember install ember-cli-sass`
 2. `ember install ember-cli-bootstrap-sassy`
+3. `ember install ember-power-select`
 
 ## Usage
 
