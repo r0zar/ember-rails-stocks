@@ -25,8 +25,7 @@ export default Ember.Controller.extend({
       datasets: [{
         data: [ this.get('theStock.lastSale') ] 
       }]
-    }
-    
+    };    
   }),
 
   actions: {

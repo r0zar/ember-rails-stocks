@@ -754,51 +754,6 @@ define("stocks/templates/index", ["exports"], function (exports) {
         templates: []
       };
     })();
-    var child1 = (function () {
-      return {
-        meta: {
-          "fragmentReason": false,
-          "revision": "Ember@2.4.4",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 39,
-              "column": 4
-            },
-            "end": {
-              "line": 41,
-              "column": 4
-            }
-          },
-          "moduleName": "stocks/templates/index.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("      ");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("div");
-          dom.setAttribute(el1, "class", "alert alert-success");
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
-          return morphs;
-        },
-        statements: [["content", "responseMessage", ["loc", [null, [40, 39], [40, 58]]]]],
-        locals: [],
-        templates: []
-      };
-    })();
     return {
       meta: {
         "fragmentReason": {
@@ -813,7 +768,7 @@ define("stocks/templates/index", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 47,
+            "line": 50,
             "column": 0
           }
         },
@@ -853,47 +808,9 @@ define("stocks/templates/index", ["exports"], function (exports) {
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("p");
-        var el3 = dom.createTextNode("Register for a feed on this stock.");
-        dom.appendChild(el2, el3);
+        var el2 = dom.createComment("\n\n<p>Register for a feed on this stock.</p>\n\n    <div class=\"form-horizontal form-group form-group-lg row\">\n        <div class=\"col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2\">\n          {{input type=\"email\" value=emailAddress class=\"form-control\" placeholder=\"Please type your e-mail address.\" autofocus=\"autofocus\"}}\n        </div>\n        <div class=\"col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3\">\n            <button class=\"btn btn-primary btn-lg btn-block\" disabled={{isDisabled}}  {{action 'saveInvitation'}}>Subscribe</button>\n        </div>\n\n    </div>\n    \n{{#if responseMessage}}\n      <div class=\"alert alert-success\">{{responseMessage}}</div>\n    {{/if}}    \n");
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n\n    ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "form-horizontal form-group form-group-lg row");
-        var el3 = dom.createTextNode("\n        ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2");
-        var el4 = dom.createTextNode("\n          ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createComment("");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n        ");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n        ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3");
-        var el4 = dom.createTextNode("\n            ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("button");
-        dom.setAttribute(el4, "class", "btn btn-primary btn-lg btn-block");
-        var el5 = dom.createTextNode("Subscribe");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n        ");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n    ");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n    \n");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createComment("");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("    \n\n");
+        var el2 = dom.createTextNode("\n\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
@@ -906,22 +823,16 @@ define("stocks/templates/index", ["exports"], function (exports) {
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [0]);
-        var element1 = dom.childAt(element0, [13]);
-        var element2 = dom.childAt(element1, [3, 1]);
-        var morphs = new Array(8);
+        var morphs = new Array(4);
         morphs[0] = dom.createMorphAt(element0, 3, 3);
         morphs[1] = dom.createMorphAt(element0, 7, 7);
         morphs[2] = dom.createMorphAt(dom.childAt(element0, [9]), 0, 0);
-        morphs[3] = dom.createMorphAt(dom.childAt(element1, [1]), 1, 1);
-        morphs[4] = dom.createAttrMorph(element2, 'disabled');
-        morphs[5] = dom.createElementMorph(element2);
-        morphs[6] = dom.createMorphAt(element0, 15, 15);
-        morphs[7] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        morphs[3] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "model", ["loc", [null, [6, 10], [6, 15]]]]], [], []], "searchPlaceholder", "Type to filter...", "searchField", "name", "selected", ["subexpr", "@mut", [["get", "theStock", ["loc", [null, [9, 11], [9, 19]]]]], [], []], "onchange", ["subexpr", "action", ["chooseStock"], [], ["loc", [null, [10, 11], [10, 33]]]]], 0, null, ["loc", [null, [5, 0], [14, 17]]]], ["inline", "ember-chart", [], ["type", "Bar", "data", ["subexpr", "@mut", [["get", "chartData", ["loc", [null, [20, 7], [20, 16]]]]], [], []], "height", 500, "width", 600], ["loc", [null, [18, 0], [23, 2]]]], ["content", "theStock.symbol", ["loc", [null, [25, 4], [25, 23]]]], ["inline", "input", [], ["type", "email", "value", ["subexpr", "@mut", [["get", "emailAddress", ["loc", [null, [31, 37], [31, 49]]]]], [], []], "class", "form-control", "placeholder", "Please type your e-mail address.", "autofocus", "autofocus"], ["loc", [null, [31, 10], [31, 141]]]], ["attribute", "disabled", ["get", "isDisabled", ["loc", [null, [34, 72], [34, 82]]]]], ["element", "action", ["saveInvitation"], [], ["loc", [null, [34, 86], [34, 113]]]], ["block", "if", [["get", "responseMessage", ["loc", [null, [39, 10], [39, 25]]]]], [], 1, null, ["loc", [null, [39, 4], [41, 11]]]], ["content", "outlet", ["loc", [null, [46, 0], [46, 10]]]]],
+      statements: [["block", "power-select", [], ["options", ["subexpr", "@mut", [["get", "model", ["loc", [null, [6, 10], [6, 15]]]]], [], []], "searchPlaceholder", "Type to filter...", "searchField", "name", "selected", ["subexpr", "@mut", [["get", "theStock", ["loc", [null, [9, 11], [9, 19]]]]], [], []], "onchange", ["subexpr", "action", ["chooseStock"], [], ["loc", [null, [10, 11], [10, 33]]]]], 0, null, ["loc", [null, [5, 0], [14, 17]]]], ["inline", "ember-chart", [], ["type", "Bar", "data", ["subexpr", "@mut", [["get", "chartData", ["loc", [null, [20, 7], [20, 16]]]]], [], []], "height", 500, "width", 600], ["loc", [null, [18, 0], [23, 2]]]], ["content", "theStock.symbol", ["loc", [null, [25, 4], [25, 23]]]], ["content", "outlet", ["loc", [null, [49, 0], [49, 10]]]]],
       locals: [],
-      templates: [child0, child1]
+      templates: [child0]
     };
   })());
 });
@@ -1385,7 +1296,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("stocks/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"stocks","version":"0.0.0+b8721dad"});
+  require("stocks/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"stocks","version":"0.0.0+a9be3730"});
 }
 
 /* jshint ignore:end */

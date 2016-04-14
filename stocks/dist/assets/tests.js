@@ -13,7 +13,7 @@ define('stocks/tests/controllers/index.jshint', ['exports'], function (exports) 
   QUnit.module('JSHint - controllers/index.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/index.js should pass jshint.\ncontrollers/index.js: line 28, col 6, Missing semicolon.\n\n1 error');
+    assert.ok(true, 'controllers/index.js should pass jshint.');
   });
 });
 define('stocks/tests/controllers/stocks.jshint', ['exports'], function (exports) {
