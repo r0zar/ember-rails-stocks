@@ -12,5 +12,6 @@ export default Ember.Controller.extend({
     chooseStock(stock) {
       this.set('target',stock);
     }
-  }
+  },
+  isDisabled: true
 });
