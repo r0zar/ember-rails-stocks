@@ -851,7 +851,7 @@ define("stocks/templates/navbar", ["exports"], function (exports) {
             },
             "end": {
               "line": 10,
-              "column": 57
+              "column": 65
             }
           },
           "moduleName": "stocks/templates/navbar.hbs"
@@ -862,7 +862,7 @@ define("stocks/templates/navbar", ["exports"], function (exports) {
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("Stocks App");
+          var el1 = dom.createTextNode("Ember-Rails-Stocks");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -1116,7 +1116,7 @@ define("stocks/templates/navbar", ["exports"], function (exports) {
         morphs[3] = dom.createMorphAt(element1, 5, 5);
         return morphs;
       },
-      statements: [["block", "link-to", ["index"], ["class", "navbar-brand"], 0, null, ["loc", [null, [10, 6], [10, 69]]]], ["block", "link-to", ["index"], ["tagName", "li"], 1, null, ["loc", [null, [15, 12], [15, 76]]]], ["block", "link-to", ["stocks"], ["tagName", "li"], 2, null, ["loc", [null, [16, 12], [16, 79]]]], ["block", "link-to", ["about"], ["tagName", "li"], 3, null, ["loc", [null, [17, 12], [17, 77]]]]],
+      statements: [["block", "link-to", ["index"], ["class", "navbar-brand"], 0, null, ["loc", [null, [10, 6], [10, 77]]]], ["block", "link-to", ["index"], ["tagName", "li"], 1, null, ["loc", [null, [15, 12], [15, 76]]]], ["block", "link-to", ["stocks"], ["tagName", "li"], 2, null, ["loc", [null, [16, 12], [16, 79]]]], ["block", "link-to", ["about"], ["tagName", "li"], 3, null, ["loc", [null, [17, 12], [17, 77]]]]],
       locals: [],
       templates: [child0, child1, child2, child3]
     };
@@ -1296,7 +1296,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("stocks/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"stocks","version":"0.0.0+a9be3730"});
+  require("stocks/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"stocks","version":"0.0.0+a844577b"});
 }
 
 /* jshint ignore:end */
